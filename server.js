@@ -9,9 +9,14 @@ const port = process.env.PORT || 3030;
 ////////////////
 // MIDDLEWARE //
 ////////////////
+const corsOptions ={
+   origin:'*', 
+   credentials:true,
+   optionSuccessStatus:200,
+}
 
 app.use(express.json())
-app.use(cors())
+app.use(cors(corsOptions))
 app.use((req, res, next) => {
 	console.log('MIDDLEWARE LOG', req.body)
 	next()
